@@ -1,4 +1,4 @@
-[boletas_concierto.html](https://github.com/user-attachments/files/26362640/boletas_concierto.html)
+[boletas_concierto (1).html](https://github.com/user-attachments/files/26362771/boletas_concierto.1.html)
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -231,15 +231,26 @@
 
   /* IMPRESIÓN */
   @media print{
+    @page{
+      size:A4 portrait;
+      margin:6mm;
+    }
     body{background:white;}
     .controls{display:none!important;}
     #sheets{display:block!important;margin:0;}
     .sheet{
       margin:0;border:none;
       page-break-after:always;
-      width:100%;height:100vh;padding:5mm;
+      break-after:page;
+      width:100%;
+      height:calc(297mm - 12mm);
+      padding:0;
+      gap:4mm;
     }
-    .sheet:last-child{page-break-after:avoid;}
+    .sheet:last-child{page-break-after:avoid;break-after:avoid;}
+    .boleta-wrap{
+      break-inside:avoid;
+    }
   }
 </style>
 </head>
